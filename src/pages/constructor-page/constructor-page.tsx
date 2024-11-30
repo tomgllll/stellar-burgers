@@ -1,15 +1,16 @@
-import { useSelector } from '../../services/store';
-
 import styles from './constructor-page.module.css';
 
 import { BurgerIngredients } from '../../components';
 import { BurgerConstructor } from '../../components';
 import { Preloader } from '../../components/ui';
 import { FC } from 'react';
+import { selectIngredientsState } from '../../services/slices/Ingredients/selectors';
+import { useSelector } from 'react-redux';
 
 export const ConstructorPage: FC = () => {
-  /** TODO: взять переменную из стора */
-  const isIngredientsLoading = false;
+  const { isLoading: isIngredientsLoading } = useSelector(
+    selectIngredientsState
+  );
 
   return (
     <>
