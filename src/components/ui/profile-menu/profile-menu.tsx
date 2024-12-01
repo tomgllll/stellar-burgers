@@ -2,6 +2,7 @@ import React, { FC } from 'react';
 import styles from './profile-menu.module.css';
 import { NavLink } from 'react-router-dom';
 import { ProfileMenuUIProps } from './type';
+import { appPaths } from '../../../utils/constants';
 
 export const ProfileMenuUI: FC<ProfileMenuUIProps> = ({
   pathname,
@@ -9,7 +10,7 @@ export const ProfileMenuUI: FC<ProfileMenuUIProps> = ({
 }) => (
   <>
     <NavLink
-      to={'/profile'}
+      to={appPaths.PROFILE}
       className={({ isActive }) =>
         `text text_type_main-medium text_color_inactive pt-4 pb-4 ${
           styles.link
