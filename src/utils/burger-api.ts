@@ -92,7 +92,8 @@ export const getOrdersApi = () =>
     method: 'GET',
     headers: {
       'Content-Type': 'application/json;charset=utf-8',
-      authorization: getCookie('accessToken')
+      authorization: JSON.parse(localStorage.getItem('user') || '{}')
+        ?.accessToken
     } as HeadersInit
   }).then((data) => {
     if (data?.success) return data.orders;

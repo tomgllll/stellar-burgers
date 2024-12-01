@@ -51,6 +51,18 @@ export const AppRoutes = () => {
           path={appPaths.ORDERS}
           element={<ProtectedRoute element={<ProfileOrders />} />}
         />
+        <Route
+          path={appPaths.ORDER}
+          element={<ProtectedRoute element={<OrderInfo />} />}
+        />
+        <Route
+          path={appPaths.INGREDIENT}
+          element={<ProtectedRoute element={<IngredientDetails />} />}
+        />
+        <Route
+          path={appPaths.PROFILE_ORDER}
+          element={<ProtectedRoute element={<OrderInfo />} />}
+        />
 
         <Route path='*' element={<NotFound404 />} />
       </Routes>
@@ -59,7 +71,7 @@ export const AppRoutes = () => {
       {background && (
         <Routes>
           <Route
-            path='/feed/:number'
+            path={appPaths.ORDER}
             element={
               <Modal
                 title={'#' + location.pathname.split('/').pop() || ''}
@@ -72,7 +84,7 @@ export const AppRoutes = () => {
             }
           />
           <Route
-            path='/ingredients/:id'
+            path={appPaths.INGREDIENT}
             element={
               <Modal
                 title={'Детали ингредиента'}
@@ -85,7 +97,7 @@ export const AppRoutes = () => {
             }
           />
           <Route
-            path='/profile/orders/:number'
+            path={appPaths.PROFILE_ORDER}
             element={
               <Modal
                 title={'#' + location.pathname.split('/').pop() || ''}

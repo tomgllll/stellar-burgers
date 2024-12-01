@@ -5,11 +5,13 @@ import { loginUser } from './features/loginUser';
 import { localStorageKeys } from '../../../utils/constants';
 import { logoutUser } from './features/logoutUser';
 import { updateUser } from './features/updateUser';
+import { getOrders } from './features/getOrders';
 
 const initialState: AuthSchema = {
   isLoading: false,
   data: null,
-  error: ''
+  error: '',
+  usersOrders: []
 };
 
 function isRejectedAction(action: Action): action is Action {
@@ -69,6 +71,14 @@ const authSlice = createSlice({
       if (!state.data) return;
       state.data.user = action.payload.user;
       localStorage.setItem('user', JSON.stringify(state.data));
+    });
+
+    builder.addCase(getOrders.pending, (state) => {
+      state.isLoading = true;
+    });
+    builder.addCase(getOrders.fulfilled, (state, action) => {
+      state.isLoading = false;
+      state.usersOrders = action.payload;
     });
 
     builder.addMatcher(isRejectedAction, (state, action) => {

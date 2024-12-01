@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from '../../services/store';
 import { useNavigate } from 'react-router-dom';
 import { TConstructorIngredient } from '@utils-types';
 import { BurgerConstructorUI } from '@ui';
-import { resetOrder } from '../../services/slices/Order/OrderSlice';
+import { resetOrderDetails } from '../../services/slices/Order/OrderSlice';
 import { placeOrder } from '../../services/slices/Order/features/placeOrder';
 import {
   selectConstructorIngredients,
@@ -37,13 +37,14 @@ export const BurgerConstructor: FC = () => {
     }
     const orderData: string[] = [
       constructorItems.bun._id,
-      ...constructorItems.ingredients.map((ingredient) => ingredient._id)
+      ...constructorItems.ingredients.map((ingredient) => ingredient._id),
+      constructorItems.bun._id
     ];
     dispatch(placeOrder(orderData));
   };
 
   const closeOrderModal = () => {
-    dispatch(resetOrder());
+    dispatch(resetOrderDetails());
   };
 
   const price = useMemo(

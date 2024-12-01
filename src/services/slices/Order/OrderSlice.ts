@@ -45,12 +45,8 @@ const orderSlice = createSlice({
         state.ingredients[newIndex] = temp;
       }
     },
-    resetOrder: (state) => {
-      state.ingredients = [];
-      state.bun = null;
-      state.loading = false;
+    resetOrderDetails: (state) => {
       state.orderDetails = null;
-      state.error = null;
     }
   },
   extraReducers: (builder) => {
@@ -62,6 +58,10 @@ const orderSlice = createSlice({
       .addCase(placeOrder.fulfilled, (state, action) => {
         state.loading = false;
         state.orderDetails = action.payload.order;
+        state.ingredients = [];
+        state.bun = null;
+        state.loading = false;
+        state.error = null;
       })
       .addCase(placeOrder.rejected, (state, action) => {
         state.loading = false;
@@ -74,6 +74,6 @@ export const {
   addIngredient,
   removeIngredient,
   reorderIngredient,
-  resetOrder
+  resetOrderDetails
 } = orderSlice.actions;
 export default orderSlice.reducer;

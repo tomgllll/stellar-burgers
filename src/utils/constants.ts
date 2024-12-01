@@ -6,7 +6,10 @@ export const appPaths = {
   FORGOT_PASSWORD: '/forgot-password',
   RESET_PASSWORD: '/reset-password',
   PROFILE: '/profile',
-  ORDERS: '/profile/orders'
+  ORDERS: '/profile/orders',
+  PROFILE_ORDER: '/profile/orders/:number',
+  INGREDIENT: '/ingredients/:id',
+  ORDER: '/feed/:number'
 };
 
 export const localStorageKeys = {
