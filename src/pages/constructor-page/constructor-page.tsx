@@ -5,7 +5,7 @@ import { BurgerConstructor } from '../../components';
 import { Preloader } from '../../components/ui';
 import { FC } from 'react';
 import { selectIngredientsState } from '../../services/slices/Ingredients/selectors';
-import { useSelector } from 'react-redux';
+import { useSelector } from '../../services/store';
 
 export const ConstructorPage: FC = () => {
   const { isLoading: isIngredientsLoading } = useSelector(

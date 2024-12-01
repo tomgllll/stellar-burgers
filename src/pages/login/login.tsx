@@ -5,7 +5,7 @@ import { loginUser } from '../../services/slices/Auth/features/loginUser';
 import { registerUser } from '../../services/slices/Auth/features/registerUser';
 import { appPaths } from '../../utils/constants';
 import { useNavigate } from 'react-router-dom';
-import { useSelector } from 'react-redux';
+import { useSelector } from '../../services/store';
 import { getAuth } from '../../services/slices/Auth/selectors';
 import { Preloader } from '@ui';
 

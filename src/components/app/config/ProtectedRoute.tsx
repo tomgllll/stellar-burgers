@@ -1,4 +1,4 @@
-import { useSelector } from 'react-redux';
+import { useSelector } from '../../../services/store';
 import { getAuth } from '../../../services/slices/Auth/selectors';
 import { Login } from '@pages';
 

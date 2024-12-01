@@ -4,7 +4,7 @@ import { registerUser } from '../../services/slices/Auth/features/registerUser';
 import { useDispatch } from '../../services/store';
 import { Navigate, useNavigate } from 'react-router-dom';
 import { getAuth } from '../../services/slices/Auth/selectors';
-import { useSelector } from 'react-redux';
+import { useSelector } from '../../services/store';
 import { appPaths } from '../../utils/constants';
 import { Preloader } from '@ui';
 
