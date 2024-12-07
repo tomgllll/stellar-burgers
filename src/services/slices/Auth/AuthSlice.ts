@@ -24,6 +24,7 @@ const authSlice = createSlice({
   reducers: {
     initAuthUser: (state) => {
       const user = localStorage.getItem(localStorageKeys.user);
+      console.log('getting user', user);
       if (user) {
         state.data = JSON.parse(user);
       }
@@ -32,6 +33,7 @@ const authSlice = createSlice({
   extraReducers: (builder: ActionReducerMapBuilder<AuthSchema>) => {
     builder.addCase(registerUser.pending, (state) => {
       state.isLoading = true;
+      state.error = '';
     });
     builder.addCase(registerUser.fulfilled, (state, action) => {
       state.isLoading = false;
@@ -44,6 +46,7 @@ const authSlice = createSlice({
 
     builder.addCase(loginUser.pending, (state) => {
       state.isLoading = true;
+      state.error = '';
     });
     builder.addCase(loginUser.fulfilled, (state, action) => {
       state.isLoading = false;
@@ -56,6 +59,7 @@ const authSlice = createSlice({
 
     builder.addCase(logoutUser.pending, (state) => {
       state.isLoading = true;
+      state.error = '';
     });
     builder.addCase(logoutUser.fulfilled, (state, action) => {
       state.isLoading = false;
@@ -65,6 +69,7 @@ const authSlice = createSlice({
 
     builder.addCase(updateUser.pending, (state) => {
       state.isLoading = true;
+      state.error = '';
     });
     builder.addCase(updateUser.fulfilled, (state, action) => {
       state.isLoading = false;
@@ -75,6 +80,7 @@ const authSlice = createSlice({
 
     builder.addCase(getOrders.pending, (state) => {
       state.isLoading = true;
+      state.error = '';
     });
     builder.addCase(getOrders.fulfilled, (state, action) => {
       state.isLoading = false;

@@ -5,5 +5,5 @@ export type AuthSchema = {
   data: TAuthResponse | null;
   isLoading: boolean;
   error: string;
-  usersOrders: TOrder[],
+  usersOrders: TOrder[];
 };

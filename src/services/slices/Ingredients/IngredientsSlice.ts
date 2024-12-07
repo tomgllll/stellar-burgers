@@ -19,10 +19,11 @@ const IngredientsSlice = createSlice({
   extraReducers: (builder) => {
     builder.addCase(getIngredients.pending, (state) => {
       state.isLoading = true;
+      state.error = '';
     });
-    builder.addCase(getIngredients.rejected, (state) => {
+    builder.addCase(getIngredients.rejected, (state, action) => {
       state.isLoading = false;
-      state.error = 'Произошла ошибка';
+      state.error = action.error?.message || 'Произошла ошибка';
     });
     builder.addCase(getIngredients.fulfilled, (state, action) => {
       state.isLoading = false;
