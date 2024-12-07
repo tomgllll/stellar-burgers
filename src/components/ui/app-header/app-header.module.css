@@ -20,14 +20,12 @@
   color: var(--text-inactive-color);
 }
 
-
 .link_active {
   color: var(--text-primary-color);
 }
 
-
 .link .icon {
-    fill: var(--text-inactive-color);
+  fill: var(--text-inactive-color);
 }
 
 .link_active .icon {
